@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" class="taskicon"  type="image/png/jpg" href="Kavyatrivedilogo.jpg">
+<link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script type="module" src="https://esm.sh/ionicons@latest/loader"></script>
+<script nomodule src="https://esm.sh/ionicons@latest/loader"></script>
+<!-- Add this in your HTML <head> -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <title>Kavya Trivedi Terminal Portfolio</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="terminal">
+            <div class="output" id="output">
+                <p style="white-space: normal;">
+Code. Create. Innovate.
+                    
+    <span style="
+ display: block; font-size: 2rem; font-weight: 800; font-family: 'Google Sans Code', monospace; ">
+      Welcome to Kavya Trivedi's Terminal Portfolio
+    </span>
+
+
+Try these commands : <span class="cmd-hint" onclick="document.getElementById('commandInput').value='skills';">skills</span> | <span class="cmd-hint" onclick="document.getElementById('commandInput').value='projects';">projects</span> | <span class="cmd-hint" onclick="document.getElementById('commandInput').value='help';">help</span></p>
+            </div>
+            <div class="input-line">
+                <span class="prompt">kavya@portfolio:~$</span>
+                <input type="text" id="commandInput" autocomplete="off" autofocus>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Developed by Kavya Trivedi | <a href="https://linkedin.com/in/trivedikavya" target="_blank">LinkedIn</a>
+    </footer>
+    <audio id="typeSound" src="https://freesound.org/data/previews/254/254326_4754950-lq.mp3"></audio>
+     
+
+    <script>
+        // Helper function to generate progress bar HTML
+         function createProgressBar(percentage) {
+        const totalBars = 12;
+        const filledBars = Math.round((percentage / 100) * totalBars);
+        const emptyBars = totalBars - filledBars;
+        const filled = '█'.repeat(filledBars);
+        const empty = '░'.repeat(emptyBars);
+        return `[ ${filled}${empty} ] ${percentage}%`;
+    }
+
+
+        const welcomeMessage = `
+Code. Create. Innovate.
+Welcome to Kavya Trivedi's Terminal Portfolio
+Try these commands: <span class="cmd-hint" onclick="document.getElementById('commandInput').value='skills';">skills</span> | <span class="cmd-hint" onclick="document.getElementById('commandInput').value='projects';">projects</span> | <span class="cmd-hint" onclick="document.getElementById('commandInput').value='resume';">resume</span>`;
+
+        const commands = {
+            help: `Available commands:
+  about          - Learn about Kavya Trivedi
+  skills         - See my skills
+  social         - Find my social media
+  projects       - View my projects
+  achievements   - View my achievements
+  stats          - View portfolio stats
+  contact (email) - Get in touch with me
+  resume (cv)    - Download my resume
+  clear          - Clear the terminal
+Type a command to proceed (e.g., 'about') but wait till command execute`,
+            about: `<ion-icon name="person-outline"></ion-icon> About Kavya Trivedi
+A creative mind who loves building cool web solutions, exploring AI, and thinking beyond the box. entrepreneurial by heart and always chasing the next big idea.
+
+Now you can type another command (e.g., 'skills').`,
+            skills: `<ion-icon name="flame-outline"></ion-icon> Skills
+- JavaScript: ${createProgressBar(83)}
+- React.js: ${createProgressBar(51)}
+- Django: ${createProgressBar(49)}
+Now you can type another command (e.g., 'social') wait till it execute.`,
+            social: `<ion-icon name="heart-outline">Social Media</ion-icon>Social Media
+<div class="social-grid">
+  
+  <div class="social-item"><ion-icon name="logo-github"></ion-icon><a href="https://github.com/trivedikavya">Github.com/kavyatrivedi</a></div>
+  <div class="social-item"><ion-icon name="logo-linkedin"></ion-icon><a href="https://linkedin.com/in/trivedikavya">linkedin.com/in/trivedikavya</a></div>
+  <div class="social-item"><ion-icon name="logo-twitter"></ion-icon><a href="https://x.com/iamkavyatrivedi">X.com/kavyatrivedi</a></div>
+  <div class="social-item"><ion-icon name="logo-instagram"></ion-icon><a href="https://instagram.com/kavyatrivedi.og">instagram.com/kavyatrivedi</a></div>
+</div>
+Now you can type another command (e.g., 'projects') wait till it execute`,
+            projects: ` <ion-icon name="desktop-outline"></ion-icon>Projects
+<div class="project-item">
+- Notes App: <a href="https://kavyatrivedinotesapp.netlify.app/">kavyatrivedinotesapp.netlify.app</a>
+  A modern notes app with a minimal UI Integrated Framer Motion for smooth animations and React Icons 
+  <span class="tech-tag">React</span> 
+- Sudoku game: <a href="https://github.com/trivedikavya/Amazon-Q-CLI">github.com/kavyatrivedi/Amazon-Q-CLI</a>
+  Built a fully interactive Sudoku game using Python, playable through a command-line interface.
+  <span class="tech-tag">AWS Q-CLI</span>
+- Web Wizards-Landing Page: <a href="https://kavyatrivediwebwizardowner.netlify.app/">kavyatrivediwebwizardowner.netlify.app</a>
+  Built a modern, responsive landing page for House of Web Wizards using HTML, Tailwind CSS, and JavaScript.
+  <span class="tech-tag">Tailwind CSS ,JavaScript</span>
+</div>
+Now you can type another command (e.g., 'contact').`,
+            achievements: `<ion-icon name="stats-chart-outline"></ion-icon>Achievements
+- Top 1 on the Leaderboard of Gen AI Hackathon 2025
+- My project EcoCarto Got Nominated in Google Maps Awards
+- Salesforce Trailhead Champion'25 
+Now you can type another command (e.g., 'stats').`,
+            stats: `<ion-icon name="podium-outline"></ion-icon> Portfolio Stats
+- 11 projects completed
+- Currently intern at MyDailyWork
+- 2 years coding experience
+Now you can type another command (e.g., 'help').`,
+            contact: `<ion-icon name="git-network-outline"></ion-icon>Contact
+Reach out to me via email: <span class="email-link" onclick="window.location.href='mailto:kavyatrivedi931@gmail.com?subject=From%20Terminal%20Portfolio&body=Heyy%20Kavya%20I%20am%20'">kavyatrivedi931@gmail.com</span>
+Now you can type another command (e.g., 'resume').`,
+            resume: `<ion-icon name="arrow-down-circle-outline"></ion-icon>Downloading resume...
+Click here to download: <a href="Kavyatrivedi.pdf" download>kavya_trivedi_resume.pdf</a>
+Now you can type another command (e.g., 'help').`,
+            'sound on': `Typing sound enabled.
+Now you can type another command (e.g., 'help').`,
+            'sound off': `Typing sound disabled.
+Now you can type another command (e.g., 'help').`,
+            clear: ''
+        };
+
+        const aliases = {
+            cv: 'resume',
+            email: 'contact'
+        };
+
+        const errorMessages = [
+            `Error 420: Command not in the matrix Bro!`,
+            `Syntax Error: Command lost in cyberspace!`,
+            `Access Denied: Unknown command detected!`
+        ];
+
+        const outputDiv = document.getElementById('output');
+        const commandInput = document.getElementById('commandInput');
+        let isSoundEnabled = true;
+        let commandHistory = [];
+        let historyIndex = -1;
+        let typingSpeed = 30; // default speed in ms per character
+
+
+       function typeText(text, callback) {
+    try {
+        let index = 0;
+        const p = document.createElement('p');
+        outputDiv.appendChild(p);
+        const typeSound = document.getElementById('typeSound');
+
+        function type() {
+            if (index < text.length) {
+                p.textContent += text[index];
+                if (isSoundEnabled && typeSound) {
+                    typeSound.currentTime = 0;
+                    typeSound.play().catch(() => {});
+                }
+                index++;
+                setTimeout(type, typingSpeed); // ✅ uses global speed set earlier
+            } else {
+                p.innerHTML = text; // Render HTML for links and progress bars
+                if (callback) callback();
+            }
+        }
+        type();
+    } catch (e) {
+        console.error('Error in typeText:', e);
+        outputDiv.innerHTML += `<p>Error rendering content: ${e.message}</p>`;
+        if (callback) callback();
+    }
+}
+
+
+      function handleCommand(command) {
+    command = command.trim().toLowerCase();
+    const p = document.createElement('p');
+    p.textContent = `kavya@portfolio:~$ ${command}`;
+    outputDiv.appendChild(p);
+
+    if (command) {
+        commandHistory.push(command);
+        historyIndex = commandHistory.length;
+    }
+
+    if (command === 'clear') {
+        outputDiv.innerHTML = '';
+        typeText(welcomeMessage, () => {
+            commandInput.focus();
+        });
+        return;
+    }
+
+    if (command === 'sound on') {
+        isSoundEnabled = true;
+        typeText(commands['sound on'], () => {
+            commandInput.focus();
+        });
+        return;
+    }
+
+    if (command === 'sound off') {
+        isSoundEnabled = false;
+        typeText(commands['sound off'], () => {
+            commandInput.focus();
+        });
+        return;
+    }
+
+    const resolvedCommand = aliases[command] || command;
+    const response = commands[resolvedCommand] || errorMessages[Math.floor(Math.random() * errorMessages.length)] + `\nType 'help' for available commands.`;
+
+    // ✅ Set speed based on command
+    if (resolvedCommand === 'skills' || resolvedCommand === 'projects') {
+        typingSpeed = 10; // faster
+    } else {
+        typingSpeed = 15; // default
+    }
+
+    typeText(response, () => {
+        commandInput.focus();
+    });
+}
+
+
+        commandInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const command = commandInput.value;
+                commandInput.value = '';
+                handleCommand(command);
+            } else if (e.key === 'ArrowUp') {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    commandInput.value = commandHistory[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    commandInput.value = commandHistory[historyIndex];
+                } else {
+                    commandInput.value = '';
+                    historyIndex = commandHistory.length;
+                }
+            }
+        });
+
+        window.addEventListener('load', () => {
+            commandInput.focus();
+        });
+    </script>
+
+   
+</body>
+</html>
